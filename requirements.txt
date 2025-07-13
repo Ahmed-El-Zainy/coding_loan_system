@@ -1,0 +1,9 @@
+gradio
+Pillow
+pandas 
+numpy 
+scipy
+statsmodels
+scikit-learn
+tabulate
+warnings
