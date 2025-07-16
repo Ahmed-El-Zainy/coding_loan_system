@@ -268,4 +268,4 @@ with gr.Blocks(title="Loan Prediction System", theme=gr.themes.Soft()) as demo:
     """)
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(share=True)
