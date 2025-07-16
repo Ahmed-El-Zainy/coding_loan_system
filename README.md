@@ -30,3 +30,8 @@ pip install -r requirements.txt
 
 
 ## demo 
+
+Running the Demo
+```
+python src/gradio_demo.py
+```
