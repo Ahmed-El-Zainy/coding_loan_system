@@ -68,12 +68,12 @@ It is also interesting to see the credit score that separates the loan status is
 
 
 
-<img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/hist_loan_ranges.png">
+<img src="assets/hist_loan_ranges.png">
 
 
 
 
-<img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/scatter_commercial_luxory.png">
+<img src="assets/scatter_commercial_luxory.png">
 
 - Let's take a more look about the asset values through the scatterplot before we move on. 
 
@@ -211,3 +211,57 @@ residuals = ols_model.resid
 ```
 
 <img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/hist_qq.png">
+
+As we see on the left plot, the distribution of the residuals is approximately a right skewed histogram. In the Q-Q plot on the right, there is a straight diagonal line going from the bottom left to the upper right of the Q-Q plot, and the blue markers in the Q-Q plot are relatively close to the red diagonal line and not deviating significantly, it suggests that the data is approximately normally distributed. 
+
+3. Independent observations
+- Combining our previous conclusions and the correlation score in the previous section, we assume all independent variables here (`no_of_dependents`, `education`, and `self_employed`) are independent from one another.
+
+4. Homoscedasticity
+
+<img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/scatter_axhline.png">
+
+ - The data points seem to be scattered randomly across the line where residuals equal 0, the assumption is likely met.
+
+test
+
+```python
+anova = ols(formula = ols_formula, data = ols_data).fit()
+
+# Get the ANOVA summary
+anova_summary = sm.stats.anova_lm(anova, typ = 2)
+
+# Display the ANOVA summary
+print(anova_summary)
+```
+output
+```
+                      sum_sq      df         F    PR(>F)
+C(no_of_dependents)  2.747923e+14     5.0  0.671513  0.645062
+C(education)         4.195183e+13     1.0  0.512591  0.474059
+C(self_employed)     3.389126e+11     1.0  0.004141  0.948694
+Residual             3.487321e+17  4261.0       NaN       NaN
+
+```
+
+* `C(no_of_dependents)`:
+
+The p-value (0.645062) is greater than the common significance level of 0.05.
+This suggests that there is no significant evidence to reject the null hypothesis, indicating that the number of dependents does not have a significant relationship with the loan amount.
+
+* `C(education)`:
+
+The p-value (0.474059) is also greater than 0.05.
+Similar to the previous result, there's no significant evidence to suggest that education level has a significant relationship with the loan amount.
+
+* `C(self_employed)`:
+
+The p-value (0.948694) is way above 0.05.
+Once again, there's no significant evidence to indicate that being self-employed has a significant relationship with the loan amount.
+<br>
+* In all three cases, the p-values are above the common threshold of 0.05, suggesting that these categorical variables are not significantly associated with the loan amount based on the ANOVA tests.
+
+
+
+### Construct
+- We are now proceeding to the construct stage, which is the step for building a machine learning model. Before we start, we need to do some extra steps to make the variables ready for the following steps.
