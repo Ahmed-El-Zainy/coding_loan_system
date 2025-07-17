@@ -39,18 +39,18 @@ python src/gradio_demo.py
 
 
 ## EDA
-<img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/pairplot.png">
+<img src="assets/pairplot.png">
 
 - As we can see, there are some variables having positive correlation with other variables, for example `loan_amount` & `income_annum`, `luxury_assets_value` & `bank_asset_value`, `income_annum` & `luxury_assets_value`. Let's start from here.
 
 
 --------
 
-<img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/box_loan.png">
+<img src="assets/box_loan.png">
 
-<img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/histmogram_loan_approve_reject.png">
+<img src="assets/histmogram_loan_approve_reject.png">
 
-<img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/scatter_loan_approve_reject.png">
+<img src="assets/scatter_loan_approve_reject.png">
 
 
 - There are some interesting insights we have seen over the above figure:
@@ -85,7 +85,7 @@ It is also interesting to see the credit score that separates the loan status is
 
 ------
 
-<img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/line_loan.png">
+<img src="assets/line_loan.png">
 
 - 1. The total observations for each of the loan terms are very even, we appreciate the owner of this dataset, so we can analyze the data much easier without worrying about the balancing.
 1. The shortest loan term in this dataset, which is 2 years, gets the one of the most chances for being approved by the lenders, compared to other loan terms, except the 4 years loan term which gets the most chances for being approved.
@@ -210,7 +210,7 @@ residuals = ols_model.resid
 
 ```
 
-<img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/hist_qq.png">
+<img src="assets/hist_qq.png">
 
 As we see on the left plot, the distribution of the residuals is approximately a right skewed histogram. In the Q-Q plot on the right, there is a straight diagonal line going from the bottom left to the upper right of the Q-Q plot, and the blue markers in the Q-Q plot are relatively close to the red diagonal line and not deviating significantly, it suggests that the data is approximately normally distributed. 
 
@@ -219,7 +219,7 @@ As we see on the left plot, the distribution of the residuals is approximately a
 
 4. Homoscedasticity
 
-<img src="/Users/ahmedmostafa/Downloads/coding_loan_system/assets/scatter_axhline.png">
+<img src="assets/scatter_axhline.png">
 
  - The data points seem to be scattered randomly across the line where residuals equal 0, the assumption is likely met.
 
